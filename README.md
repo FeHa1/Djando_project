@@ -1,1 +1,1 @@
-# Djando_proyect
+# Djando_project
