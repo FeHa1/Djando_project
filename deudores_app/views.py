@@ -1,14 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse 
 
-def calculate():
-    x  = 1
-    y = 2
-    return x
+from .models import Deudor
 
+def lista_deudores(request):
+    deudores = Deudor.objects.all()  # Trae todos los deudores de la DB
+    return render(request, 'deudores_app/lista_deudores.html', {'deudores': deudores})
 
-# Create your views here.
-def say_hello(request):
-    x = calculate()
-    return render(request, 'hi.html', {'name': 'Loco'})
- 
+def  detalle_deudor(request, deudor_id):
+    deudor = get_object_or_404(Deudor, id=deudor_id)
+    return render(request, 'deudores_app/detalle_deudor.html', {'deudor': deudor})

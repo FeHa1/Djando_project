@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle del Deudor</title>
+</head>
+<body>
+    <h1>Información del Deudor</h1>
+    
+    <p><strong>Nombre Completo:</strong> {{ deudor.nombre_completo }}</p>
+    <p><strong>DNI:</strong> {{ deudor.dni }}</p>
+    <p><strong>Email:</strong> {{ deudor.email|default:"No registrado" }}</p>
+    <p><strong>Teléfono:</strong> {{ deudor.telefono|default:"No registrado" }}</p>
+    <p><strong>Deuda:</strong> ${{ deudor.deuda }}</p>
+    <p><strong>Fecha de Alta:</strong> {{ deudor.fecha_alta }}</p>
+    <p><strong>Estado:</strong> {{ deudor.get_estado_display }}</p>
+    
+    <br>
+    <a href="{% url 'lista_deudores' %}">← Volver a la lista</a>
+</body>
+</html>
