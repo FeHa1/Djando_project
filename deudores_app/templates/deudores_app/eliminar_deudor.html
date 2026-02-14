@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eliminar Deudor</title>
+</head>
+<body>
+    <h1>¿Estás seguro de eliminar este deudor?</h1>
+    
+    <p><strong>Nombre:</strong> {{ deudor.nombre_completo }}</p>
+    <p><strong>DNI:</strong> {{ deudor.dni }}</p>
+    <p><strong>Deuda:</strong> ${{ deudor.deuda }}</p>
+    
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" style="background-color: red; color: white;">Sí, eliminar</button>
+        <a href="{% url 'detalle_deudor' deudor.id %}">Cancelar</a>
+    </form>
+</body>
+</html>

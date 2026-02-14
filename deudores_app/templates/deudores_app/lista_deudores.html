@@ -7,6 +7,9 @@
 <body>
     <h1>Gestión de Deudores</h1>
     
+    <a href="{% url 'crear_deudor' %}">+ Agregar Nuevo Deudor</a>
+    <br><br>
+    
     <table border="1">
         <thead>
             <tr>
@@ -25,7 +28,9 @@
                 <td>${{ deudor.deuda }}</td>
                 <td>{{ deudor.get_estado_display }}</td>
                 <td>
-                    <a href="{% url 'detalle_deudor' deudor.id %}">Ver detalle</a>
+                    <a href="{% url 'detalle_deudor' deudor.id %}">Ver</a>
+                    |
+                    <a href="{% url 'editar_deudor' deudor.id %}">Editar</a>  <!-- ← Nueva línea -->
                 </td>
             </tr>
             {% endfor %}

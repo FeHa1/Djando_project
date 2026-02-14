@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Deudor</title>
+</head>
+<body>
+    <h1>Agregar Nuevo Deudor</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+        <a href="{% url 'lista_deudores' %}">Cancelar</a>
+    </form>
+</body>
+</html>
